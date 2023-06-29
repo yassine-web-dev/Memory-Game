@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory Game</title>
+
+        <!-- Css Files -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+        <link rel="stylesheet" href="./Css/Normalize.css"/>
+        <link rel="stylesheet" href="./Css/main.css"/>
+    </head>
+    <body>
+
+        <!-- Start Control Buttons -->
+        <div class="control-buttons">
+            <span>Start Game</span>
+        </div>
+        <!-- End Control Buttons -->
+
+        <!-- Start Info Container -->
+        <div class="info-container">
+            <div class="name">
+                Hello: <span></span>
+            </div>
+            <div class="timer">Time: 00:00:00</div>
+            <div class="tries">
+                Wrong Tries: <span>0</span>
+            </div>
+        </div>
+        <!-- End Info Container -->
+
+        <!-- Start Memory Game Blocks -->
+        <div class="memory-game-blocks"></div>
+        <!-- End Memory Game Blocks -->
+
+        <!-- Start Leaderboard -->
+        <div class="leaderboard">
+            <h1>Leaderboard</h1>
+            <table id="leaderboard">
+                <tr>
+                    <th>Name</th>
+                    <th>Wrong Tries</th>
+                </tr>
+            </table>
+        </div>
+        <!-- End Leaderboard -->
+
+        <!-- Start Audios -->
+        <audio src="./Audios/success-1-6297.mp3" id="success" preload="auto"></audio>
+        <audio src="./Audios/negative_beeps-6008.mp3" id="fail" preload="auto"></audio>
+        <audio src="./Audios/cottagecore-17463.mp3" id="back-music" preload="auto"></audio>
+        <audio src="./Audios/crowd-cheering-143103.mp3" id="cel" preload="auto"></audio>
+        <audio src="./Audios/mixkit-arcade-space-shooter-dead-notification-272.wav" id="game-over" preload="auto"></audio>
+        <!-- End Audios -->
+
+        <script src="./Js/main.js"></script>
+    </body>
+</html>
