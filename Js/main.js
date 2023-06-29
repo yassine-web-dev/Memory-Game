@@ -25,7 +25,7 @@ el.addEventListener('click', function () {
     // Set Time to Reset The Game
     let timerElem = document.querySelector('.timer');
     
-    // Set the initial time to 0
+    // Set number of Seconds
     let seconds = 30;
 
     // Update the timer every second
@@ -49,12 +49,33 @@ el.addEventListener('click', function () {
 
             clearInterval(timerInterval);
 
+            // Flip Remaining Blocks After Loss
+            isFlipped2ndV();
+
+            // add no clicking class on blocks
+            addNoClicking();
+
             document.getElementById('game-over').play();
 
-            window.alert('Game Over');
+            setTimeout(() => {
+                // Remove Background Music To the Game
+                document.getElementById('back-music').remove();
+
+                Swal.fire({
+                    title: `Game Over`,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            }, 1000)
             
             // Reload the current page
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, 6000);
         }
 
         // Assuming you have an array of elements or a NodeList
@@ -161,6 +182,28 @@ function isFlipped() {
     }, 2000);
 }
 
+// Add No Clicking Function
+function addNoClicking() {
+
+    // Add Class No Clicking on Main Container
+    blocksContainer.classList.add('no-clicking');
+}
+
+// Check Is Flipped Function
+function isFlipped2ndV() {
+
+    blocks.forEach(block => {
+
+        if (block.classList.contains('is-flipped')) {
+            
+            // Nothing
+        } else {
+
+            block.classList.add('is-flipped');
+        }
+    })
+}
+
 // Flip Block Function
 function flipBlock(selectedBlock) {
 
@@ -202,8 +245,24 @@ function flipBlock(selectedBlock) {
     if (allElementsHaveClass) {
 
         document.getElementById('cel').play();
-        window.alert('Good Job');
-        window.location.reload();
+
+        // Remove Background Music To the Game
+        document.getElementById('back-music').remove();
+
+        Swal.fire({
+            title: `Good Job`,
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+
+        // Reload the current page
+        setTimeout(() => {
+            window.location.reload();
+        }, 6000);
     }
 }
 
